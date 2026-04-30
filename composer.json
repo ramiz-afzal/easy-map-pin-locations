@@ -1,5 +1,5 @@
 {
-	"name": "ramizafzal/plugin-prefix",
+	"name": "ramizafzal/easy-map-pin-locations",
 	"type": "project",
 	"license": "GPL",
 	"authors": [
@@ -11,7 +11,10 @@
 	"minimum-stability": "dev",
 	"autoload": {
 		"psr-4": {
-			"PLUGIN_NAMESPACE\\": "./inc"
+			"EASY_MAP_PIN_LOCATIONS\\": "./inc"
 		}
+	},
+	"require": {
+		"htmlburger/carbon-fields": "dev-development"
 	}
 }

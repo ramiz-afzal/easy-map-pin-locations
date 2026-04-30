@@ -1,9 +1,9 @@
 <?php
 
-namespace PLUGIN_NAMESPACE\Base;
+namespace EASY_MAP_PIN_LOCATIONS\Base;
 
-use PLUGIN_NAMESPACE\Base\Variable;
-use PLUGIN_NAMESPACE\Base\Functions;
+use EASY_MAP_PIN_LOCATIONS\Base\Variable;
+use EASY_MAP_PIN_LOCATIONS\Base\Functions;
 
 if (!defined('ABSPATH')) exit;
 
@@ -25,6 +25,10 @@ class Enqueue
     {
         wp_enqueue_style(Functions::with_uuid('admin-styles'), Functions::css_file('admin.css'), [], Functions::get_uuid());
         wp_enqueue_script(Functions::with_uuid('admin-script'), Functions::js_file('admin.js'), [], Functions::get_uuid(), true);
+
+        // leaflet files
+        wp_register_style(Functions::with_uuid('leaflet-styles'), Functions::asset_file('leaflet/leaflet.css'), [], Functions::get_uuid());
+        wp_register_script(Functions::with_uuid('leaflet-scripts'), Functions::asset_file('leaflet/leaflet.js'), [], Functions::get_uuid(), true);
 
         if (Variable::GET('LOCALIZE_ADMIN_JS_OBJECT')) {
             wp_localize_script(

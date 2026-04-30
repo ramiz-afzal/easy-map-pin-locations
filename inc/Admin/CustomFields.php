@@ -1,14 +1,12 @@
 <?php
 
-namespace PLUGIN_NAMESPACE\Admin;
+namespace EASY_MAP_PIN_LOCATIONS\Admin;
 
-use PLUGIN_NAMESPACE\Base\Variable;
-use PLUGIN_NAMESPACE\Base\Functions;
-use PLUGIN_NAMESPACE\Base\Constant;
+use EASY_MAP_PIN_LOCATIONS\Base\Constant;
 use \Carbon_Fields\Carbon_Fields;
 use \Carbon_Fields\Container;
 use \Carbon_Fields\Field;
-use PLUGIN_NAMESPACE\Core\WordPressHooks;
+use EASY_MAP_PIN_LOCATIONS\Base\Functions;
 
 if (!defined('ABSPATH')) exit;
 
@@ -38,20 +36,17 @@ class CustomFields
      */
     public function register_carbon_fields()
     {
-        self::register_settings_page_custom_fields();
+        self::register_sub_city_custom_fields();
     }
 
 
-    public static function register_settings_page_custom_fields()
+    public static function register_sub_city_custom_fields()
     {
-        Container::make('theme_options', __('Theme Options'))
-            ->set_page_menu_title('Theme Options')
-            ->set_page_file(Constant::SLUG_ADMIN_MENU)
-            ->set_icon('data:image/svg+xml;base64,' . base64_encode(file_get_contents(Variable::GET('PATH') . 'assets/img/menu-icon.svg')))
-            ->set_page_menu_position(80)
-            ->add_fields(array(
-                //
-                Field::make('separator', 'separator_1', __('Settings Fields Here')),
-            ));
+        $container = Container::make('post_meta', __('Map Settings'));
+        $container->where('post_type', '=', Constant::CPT_MAP);
+        $container->add_fields(array(
+            Field::make('file', Functions::prefix('locations_data'), __('Locations'))->set_type(['csv']),
+
+        ));
     }
 }

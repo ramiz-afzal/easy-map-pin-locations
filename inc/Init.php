@@ -1,6 +1,6 @@
 <?php
 
-namespace PLUGIN_NAMESPACE;
+namespace EASY_MAP_PIN_LOCATIONS;
 
 if (!defined('ABSPATH')) exit;
 
@@ -10,9 +10,9 @@ final class Init
     {
         return array(
             Base\Enqueue::class,
+            Admin\CustomFields::class,
+            Admin\CustomMetaBoxes::class,
             Core\Shortcode::class,
-            Core\AjaxHandler::class,
-            Core\WordPressHooks::class,
             Core\CustomPostTypes::class,
         );
     }

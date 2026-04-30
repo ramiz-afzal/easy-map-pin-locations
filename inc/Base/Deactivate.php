@@ -1,6 +1,6 @@
 <?php
 
-namespace PLUGIN_NAMESPACE\Base;
+namespace EASY_MAP_PIN_LOCATIONS\Base;
 
 if (!defined('ABSPATH')) exit;
 

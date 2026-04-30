@@ -1,8 +1,9 @@
 <?php
 
-namespace PLUGIN_NAMESPACE\Core;
+namespace EASY_MAP_PIN_LOCATIONS\Core;
 
-use PLUGIN_NAMESPACE\Base\Constant;
+use EASY_MAP_PIN_LOCATIONS\Base\Constant;
+use EASY_MAP_PIN_LOCATIONS\Base\Variable;
 
 class CustomPostTypes
 {
@@ -16,21 +17,19 @@ class CustomPostTypes
     public static function get_custom_post_types()
     {
         return [
-            // 'unique-cpt-slug' => array(
-            //     'labels'                => self::generate_cpt_labels('Books', 'Book'),
-            //     'public'                => false,
-            //     'publicly_queryable'    => false,
-            //     'hierarchical'          => false,
-            //     'show_in_nav_menus'     => false,
-            //     'rewrite'               => false,
-            //     'query_var'             => false,
-            //     'capability_type'       => 'post',
-            //     'supports'              => ['title'],
-            //     'has_archive'           => false,
-            //     'show_ui'               => true,
-            //     'exclude_from_search'   => true,
-            //     'show_in_menu'          => 'options.php',
-            // ),
+            Constant::CPT_MAP => array(
+                'labels'                => self::generate_cpt_labels('Maps', 'Map'),
+                'public'                => false,
+                'publicly_queryable'    => false,
+                'hierarchical'          => false,
+                'show_in_nav_menus'     => false,
+                'show_ui'               => true,
+                'exclude_from_search'   => true,
+                'supports'              => ['title'],
+                'capability_type'       => 'post',
+                'menu_position'         => 90,
+                'menu_icon'             => 'data:image/svg+xml;base64,' . base64_encode(file_get_contents(Variable::GET('PATH') . 'assets/img/menu-icon.svg')),
+            ),
         ];
     }
 

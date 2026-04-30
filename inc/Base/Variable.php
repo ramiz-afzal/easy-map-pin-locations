@@ -1,6 +1,6 @@
 <?php
 
-namespace PLUGIN_NAMESPACE\Base;
+namespace EASY_MAP_PIN_LOCATIONS\Base;
 
 if (!defined('ABSPATH')) exit;
 
@@ -9,7 +9,7 @@ final class Variable
     private static $VARIABLES = [];
     public static function LOAD_VARIABLES($__FILE__)
     {
-        self::$VARIABLES['PREFIX']                      = 'plugin-prefix';
+        self::$VARIABLES['PREFIX']                      = 'easy-map-pin-locations';
         self::$VARIABLES['URL']                         = plugin_dir_url($__FILE__);
         self::$VARIABLES['PATH']                        = plugin_dir_path($__FILE__);
         self::$VARIABLES['BASENAME']                    = plugin_basename($__FILE__);
@@ -17,9 +17,9 @@ final class Variable
         self::$VARIABLES['LOAD_FRONTEND_FILES']         = true;
         self::$VARIABLES['LOAD_ADMIN_FILES']            = true;
         self::$VARIABLES['LOCALIZE_JS_OBJECT']          = true;
-        self::$VARIABLES['JS_OBJECT_NAME']              = 'pluginPrefixAjax';
+        self::$VARIABLES['JS_OBJECT_NAME']              = 'easyMapPinLocationsAjax';
         self::$VARIABLES['LOCALIZE_ADMIN_JS_OBJECT']    = true;
-        self::$VARIABLES['JS_ADMIN_OBJECT_NAME']        = 'pluginPrefixAdminAjax';
+        self::$VARIABLES['JS_ADMIN_OBJECT_NAME']        = 'easyMapPinLocationsAdminAjax';
 
         // load file variables
         self::GET_FILE_VARIABLES($__FILE__);
