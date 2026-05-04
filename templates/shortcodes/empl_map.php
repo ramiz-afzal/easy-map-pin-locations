@@ -62,7 +62,7 @@ foreach ($rows as $row) {
     $locations_data[] = array(
         'title'         => $title,
         'image'         => $image,
-        'url'           => $image,
+        'url'           => $url,
         'latitude'      => $latitude,
         'longitude'     => $longitude,
         'props'         => $props
