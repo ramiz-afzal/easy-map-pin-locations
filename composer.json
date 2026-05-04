@@ -15,6 +15,7 @@
 		}
 	},
 	"require": {
-		"htmlburger/carbon-fields": "dev-development"
+		"htmlburger/carbon-fields": "dev-development",
+		"symfony/string": "5.4.x-dev"
 	}
 }

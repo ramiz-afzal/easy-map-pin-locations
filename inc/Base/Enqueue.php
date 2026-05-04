@@ -26,10 +26,6 @@ class Enqueue
         wp_enqueue_style(Functions::with_uuid('admin-styles'), Functions::css_file('admin.css'), [], Functions::get_uuid());
         wp_enqueue_script(Functions::with_uuid('admin-script'), Functions::js_file('admin.js'), [], Functions::get_uuid(), true);
 
-        // leaflet files
-        wp_register_style(Functions::with_uuid('leaflet-styles'), Functions::asset_file('leaflet/leaflet.css'), [], Functions::get_uuid());
-        wp_register_script(Functions::with_uuid('leaflet-scripts'), Functions::asset_file('leaflet/leaflet.js'), [], Functions::get_uuid(), true);
-
         if (Variable::GET('LOCALIZE_ADMIN_JS_OBJECT')) {
             wp_localize_script(
                 Functions::with_uuid('admin-script'),
@@ -43,6 +39,10 @@ class Enqueue
     {
         wp_enqueue_style(Functions::with_uuid('frontend-styles'), Functions::css_file('frontend.css'), [], Functions::get_uuid());
         wp_enqueue_script(Functions::with_uuid('frontend-script'), Functions::js_file('frontend.js'), [], Functions::get_uuid(), true);
+
+        // leaflet files
+        wp_register_style(Functions::with_uuid('leaflet-styles'), Functions::asset_file('leaflet/leaflet.css'), [], Functions::get_uuid());
+        wp_register_script(Functions::with_uuid('leaflet-scripts'), Functions::asset_file('leaflet/leaflet.js'), [], Functions::get_uuid(), true);
 
         if (Variable::GET('LOCALIZE_JS_OBJECT')) {
             $script_variables = ['ajax_url' => admin_url('admin-ajax.php'), 'nonce' => wp_create_nonce('ajax_security')];
