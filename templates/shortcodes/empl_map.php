@@ -54,7 +54,7 @@ foreach ($rows as $row) {
     foreach ($item as $key => $value) {
         $props[] = array(
             'key'   => $key,
-            'label' =>  $header[$key]['label'],
+            'label' => $header[$key]['label'],
             'value' => $value,
         );
     }
@@ -71,5 +71,5 @@ foreach ($rows as $row) {
 ?>
 
 <div class="empl-map-wrapper">
-    <div class="empl-map" id="empl-map-<?= uniqid(true); ?>" style="height: 500px;" data-locations-data='<?= json_encode($locations_data); ?>'></div>
+    <div class="empl-map" id="empl-map-<?= uniqid(true); ?>" style="height: 500px;" data-locations-data="<?= esc_attr(wp_json_encode($locations_data, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_QUOT | JSON_HEX_AMP | JSON_UNESCAPED_UNICODE)); ?>"></div>
 </div>
